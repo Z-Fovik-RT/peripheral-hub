@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "note": "用户提供软件与本机扫描交叉核对的型号映射。匹配成功仅代表识别到对应配置，所有私有控制功能仍待适配及实机验证。VID/PID 可能被同平台产品共用。",
+  "devices": [
+    {
+      "id": "aula-f87-pro",
+      "name": "AULA F87 / F87 PRO（系列匹配）",
+      "category": "keyboard",
+      "hardware": [
+        { "vid": "3554", "pid": "FA09", "connection": "无线接收器" },
+        { "vid": "258A", "pid": "010C", "connection": "有线（包内配置，尚未实机核验）" }
+      ],
+      "evidence": [
+        "reference/aula-f87-pro/app/Dev/kb/F87PRO/KB.ini:2-5 VID/PID 与 VID_Wireless/PID_Wireless",
+        "reference/aula-f87-pro/app/Dev/kb/F87PRO/KB.ini:10 Name=AULA F87 PRO"
+      ],
+      "configuredFeatures": ["键位配置", "灯效、亮度与速度", "休眠时间"],
+      "privateControlStatus": "not-implemented",
+      "notes": "用户提供 F87 PRO 新板安装包；F87 与 F87 PRO 的 KB.ini 共用 VID/PID，自动识别只能确认系列，细分型号需进一步核对。ShowPower=0，不预设电量显示可用。配置表不是完整 HID 命令协议，尚未发送任何设置指令。"
+    },
+    {
+      "id": "inphic-in9",
+      "name": "Inphic IN9",
+      "category": "mouse",
+      "hardware": [
+        { "vid": "248A", "pid": "5B2F", "connection": "当前接收器" }
+      ],
+      "evidence": [
+        "reference/inphic-in9/app/Inphic IN9 GM.exe: file+0x2CE4E-0x2CE56 VID=0x248A comparison",
+        "reference/inphic-in9/app/Inphic IN9 GM.exe: file+0x2CEFB-0x2CF03 PID=0x5B2F comparison",
+        "reference/inphic-in9/app/Inphic IN9 GM.exe: file+0x2CF09 / file+0x2CF3C report length=33 checks",
+        "reference/inphic-in9/app/config/default0.psf: UTF-16LE default settings"
+      ],
+      "configuredFeatures": ["DPI 档位", "回报率", "按键与宏", "灯效", "休眠设置"],
+      "privateControlStatus": "not-implemented",
+      "notes": "程序的 VID/PID 比较与本机 33 字节 Input/Feature 接口一致。另一个 5B2E 分支未用于本次识别；其连接模式尚未验证。配置默认值不是设备当前状态。"
+    },
+    {
+      "id": "ikf-v11-pro-71",
+      "name": "iKF-V11 Pro（7.1）",
+      "category": "headset",
+      "hardware": [
+        { "vid": "0E6A", "pid": "0110", "connection": "USB 音频" }
+      ],
+      "productContains": "iKF-V11 Pro",
+      "evidence": [
+        "reference/ikf-v11/{app}/ApoDriver/Driver/CM002X1.Inf:39 USB\\VID_0E6A&PID_0110&MI_00",
+        "reference/ikf-v11/{app}/ApoDriver/Apo/01_EXTENSION/CM002X1_Ext.inf:23 matching endpoint",
+        "reference/ikf-v11/analysis/pinvoke-imports.json: CmXearSDK.dll / CmHIDSDK.dll declarations"
+      ],
+      "configuredFeatures": ["音量与静音", "麦克风", "10 段 EQ 预设", "Xear 环绕音效"],
+      "privateControlStatus": "not-implemented",
+      "notes": "本机音频产品名也与型号匹配。系统音量可通过 Windows Core Audio 单独接入；EQ/环绕使用原厂 C-Media SDK/APO 路线，尚未完成运行验证。"
+    }
+  ]
+}

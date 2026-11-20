@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="light"><title>外设中心 · 玻璃定制版</title>
+  <link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./device-controls.css"><link rel="stylesheet" href="./headset-audio.css"><link rel="stylesheet" href="./headset-overview.css"><link rel="stylesheet" href="./application-settings.css"><link rel="stylesheet" href="./aula-profile-editor.css"><link rel="stylesheet" href="./headset-profiles.css"><link rel="stylesheet" href="./headset-master.css"><link rel="stylesheet" href="./headset-auto-switch.css"><link rel="stylesheet" href="./keyboard-read.css"><link rel="stylesheet" href="./keyboard-draft.css"><link rel="stylesheet" href="./in9-profile.css"><script src="./assets/keyboard-layout.js" defer></script><script src="./aula-profile-editor.js" defer></script><script src="./local-library.js" defer></script><script src="./headset-profiles.js" defer></script><script src="./headset-auto-switch.js" defer></script><script src="./headset-effects.js" defer></script><script src="./headset-master.js" defer></script><script src="./headset-audio.js" defer></script><script src="./headset-overview.js" defer></script><script src="./keyboard-draft.js" defer></script><script src="./keyboard-read.js" defer></script><script src="./in9-actions.js" defer></script><script src="./in9-lighting.js" defer></script><script src="./in9-profile.js" defer></script><script src="./device-controls.js" defer></script><script src="./application-settings.js" defer></script><script src="./app.js" defer></script>
+  <link rel="stylesheet" href="./public-appearance.css">
+</head>
+<body>
+<svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+ <symbol id="i-device" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="3"/><path d="M8 21h8M12 17v4"/></symbol>
+ <symbol id="i-light" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8 13a6 6 0 1 1 8 0c-1 1-1 2-1 3H9c0-1 0-2-1-3Z"/></symbol>
+ <symbol id="i-config" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></symbol>
+ <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 4v6h-6M4 20v-6h6M4.6 9a8 8 0 0 1 13.1-3L20 10M4 14l2.3 4A8 8 0 0 0 19.4 15"/></symbol>
+ <symbol id="i-appearance" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M1 12h2M21 12h2M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2"/></symbol>
+ <symbol id="i-settings" viewBox="0 0 24 24"><path d="m9 3-1 3-3 1-2 3 2 2-1 3 3 2 1 3h4l1-3 3-1 2-3-2-2 1-3-3-2-1-3Z"/><circle cx="10.5" cy="11.5" r="3"/></symbol>
+ <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+ <symbol id="i-stage" viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/><rect x="7" y="7" width="10" height="10" rx="2"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+ <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+ <symbol id="i-min" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+ <symbol id="i-max" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+ <symbol id="i-volume" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5ZM15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></symbol>
+ <symbol id="i-mic" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="13" rx="4"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></symbol>
+ <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+ <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></symbol>
+ <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 12H4M10 6l-6 6 6 6"/></symbol>
+</defs></svg>
+<div class="wallpaper" aria-hidden="true"></div>
+<a href="#workspace" class="skip-link">跳转到设备</a>
+<div id="app-shell" class="app-shell">
+ <header class="topbar">
+  <button class="brand glass" id="brand-about" aria-label="关于外设中心"><span class="brand-glyph" aria-hidden="true">H</span><span><strong>HUB <span>外设中心</span></strong><small>非官方 · 本地定制</small></span></button>
+  <nav class="primary-nav glass" aria-label="主导航">
+   <button id="devices-nav" class="nav-tab active" aria-current="page"><svg class="icon"><use href="#i-device"/></svg>设备</button>
+   <button id="lights-nav" class="nav-tab" title="所选设备灯光设置"><svg class="icon"><use href="#i-light"/></svg>灯光</button>
+   <button id="profiles-nav" class="nav-tab" title="所选设备配置"><svg class="icon"><use href="#i-config"/></svg>配置</button>
+  </nav>
+  <div class="top-actions">
+   <div class="tools glass"><button id="refresh-button" class="icon-button" title="刷新设备" aria-label="刷新设备"><svg class="icon"><use href="#i-refresh"/></svg><span class="sr-only" id="refresh-label">刷新设备</span></button><button id="appearance-button" class="icon-button" title="外观" aria-label="外观"><svg class="icon"><use href="#i-appearance"/></svg></button><button id="app-settings" class="icon-button" title="应用设置" aria-label="应用设置"><svg class="icon"><use href="#i-settings"/></svg></button></div>
+   <div class="window-controls" aria-label="窗口控制"><button class="window-button" data-window="minimize" aria-label="最小化"><svg class="icon"><use href="#i-min"/></svg></button><button class="window-button" data-window="maximize" aria-label="最大化"><svg class="icon"><use href="#i-max"/></svg></button><button class="window-button close-window" data-window="close" aria-label="关闭窗口"><svg class="icon"><use href="#i-close"/></svg></button></div>
+  </div>
+ </header>
+ <main id="workspace" class="workspace" tabindex="-1" data-layout-mode="stage">
+  <div class="workspace-top"><div class="workspace-status"><span class="status-dot" id="global-status-dot"></span><span id="connected-count">正在发现设备</span><span class="divider"></span><span id="scan-time">本地连接</span></div><div class="layout-switch glass" role="group" aria-label="设备布局"><button class="icon-button active" data-layout="stage" aria-label="沉浸舞台" aria-pressed="true"><svg class="icon"><use href="#i-stage"/></svg></button><button class="icon-button" data-layout="grid" aria-label="网格视图" aria-pressed="false"><svg class="icon"><use href="#i-grid"/></svg></button></div></div>
+  <section id="stage" class="stage" aria-label="所选设备">
+   <div class="stage-copy" id="stage-copy"><p class="eyebrow" id="stage-category">KEYBOARD / AULA</p><div class="stage-status" id="stage-status">等待扫描</div><h1 id="stage-name">F87 / F87 PRO</h1><p id="stage-description">无线机械键盘</p><div class="stage-details"><span id="stage-connection">正在读取设备状态</span><span id="stage-capability">私有控制待适配</span></div><button id="open-settings" class="primary-button">设备设置<svg class="icon"><use href="#i-arrow"/></svg></button><p id="stage-footnote" class="stage-footnote">系列匹配 · 具体板型待核对</p></div>
+   <div id="stage-visual" class="stage-visual"><div class="stage-halo"></div><img id="stage-image" src="./assets/keyboard.svg" alt="浅色机械键盘示意图" draggable="false"><span class="stage-shadow"></span></div>
+   <div class="stage-index"><strong id="stage-index">01</strong><span>/ 03</span></div>
+  </section>
+  <section id="device-grid" class="device-dock" aria-label="选择设备" aria-busy="true"></section>
+  <footer class="workspace-footer"><span id="footer-status">本地设备服务连接中</span><button class="text-button" id="support-button">功能支持状态<svg class="icon"><use href="#i-info"/></svg></button></footer>
+ </main>
+<section id="device-page" class="device-page glass" role="main" aria-label="设备设置页面" hidden>
+ <header class="device-page-header">
+  <button id="close-device-page" class="secondary-button back-button" aria-label="返回设备主页"><svg class="icon"><use href="#i-back"/></svg><span>返回设备</span></button>
+  <div class="page-title-group"><p class="eyebrow" id="page-eyebrow">DEVICE SETTINGS</p><h2 id="page-title">设备设置</h2></div>
+  <div class="page-device"><img id="page-device-image" src="./assets/keyboard.svg" alt="" draggable="false"><div><strong id="page-device-name">F87 / F87 PRO</strong><p id="page-device-status">等待扫描</p></div></div>
+ </header>
+ <div class="page-device-toolbar"><div><span id="device-source" class="source-label">尚未读取硬件</span><p id="device-read-status" class="device-read-status" role="status" aria-live="polite">读取硬件后显示实际设置。调整先保存为草稿，点击应用才写入。</p></div><button id="read-device" class="primary-button">读取设备</button></div><ul id="device-read-warnings" class="device-warnings page-warnings" hidden></ul>
+<div class="device-page-body">
+  <nav class="page-nav" aria-label="设置分类">
+   <button type="button" class="page-nav-item active" data-page-tab="overview" aria-selected="true">概览</button>
+   <button type="button" class="page-nav-item" data-page-tab="lighting" aria-selected="false">灯光</button>
+   <button type="button" class="page-nav-item" data-page-tab="keys" aria-selected="false">按键</button>
+   <button type="button" class="page-nav-item" data-page-tab="performance" aria-selected="false">性能</button>
+    <button type="button" class="page-nav-item" data-page-tab="mouse-profile" aria-selected="false" hidden>配置与传输</button>
+   <button type="button" class="page-nav-item" data-page-tab="restore" aria-selected="false">恢复</button>
+    <button type="button" class="page-nav-item" data-page-tab="effects" aria-selected="false" hidden>音效</button>
+     <button type="button" class="page-nav-item" data-page-tab="features" aria-selected="false">功能支持</button>
+    <button type="button" class="page-nav-item" data-page-tab="library" aria-selected="false">本地库</button>
+  </nav>
+  <div class="page-content">
+    <section id="page-mouse-profile" class="page-panel" role="tabpanel" aria-label="鼠标配置" hidden></section>
+     <section id="page-effects" class="page-panel" role="tabpanel" aria-label="音效" hidden></section>
+     <section id="page-library" class="page-panel" role="tabpanel" aria-label="本地库" hidden>
+     <div class="subheading"><h3>本地库</h3><span class="draft-chip">仅本地保存</span></div>
+     <p class="small-note">管理本地设备配置与耳机 EQ 预设。保存和导入不会改变设备。</p>
+     <div class="library-toolbar"><label>内容 <select id="library-kind"><option value="profiles" selected>配置</option><option value="eq">EQ 预设</option></select></label><label id="library-flow-label" hidden>方向 <select id="library-flow"><option value="render">播放</option><option value="capture">录音</option></select></label><button id="library-refresh" class="secondary-button">刷新</button><button id="library-new" class="secondary-button">新建</button></div>
+     <label class="field">已保存项目<select id="library-select"><option value="">选择项目</option></select></label>
+     <p id="library-status" class="small-note" role="status">选择内容后读取本地库。</p>
+     <label class="field">名称<input id="library-name" type="text" maxlength="60" placeholder="输入名称"></label>
+     <div id="library-eq-editor" class="setting-card" hidden><p class="small-note">播放 EQ 为31 Hz至16 kHz十段、−20至20 dB。保存只修改本地预设；点击“应用已保存的播放预设”才写入耳机并重新读取核对。录音十段尚未确认，不开放应用。</p><div id="library-eq-bands" class="library-eq-bands"></div></div>
+     <div id="library-profile-note" class="setting-card" hidden><p class="small-note">新建配置为空的本地配置。载入或导入的内容在重命名、复制时完整保留；硬件应用尚未开放。</p><p id="library-profile-summary" class="small-note"></p></div>
+     <div class="draft-actions library-toolbar"><button id="library-save" class="primary-button">保存</button><button id="library-copy" class="secondary-button">另存副本</button><button id="library-delete" class="secondary-button" disabled>删除</button><button id="library-eq-apply" class="secondary-button" disabled>应用已保存的播放预设</button></div>
+     <details class="library-transfer"><summary>导入与导出</summary><p class="small-note">配置导入先载入编辑区，点击保存才入库；耳机 EQ 文件可导入到本地预设。</p><label class="field">选择导入文件<input id="library-file" type="file" accept=".json,application/json"></label><button id="library-import" class="secondary-button">导入</button><button id="library-export" class="secondary-button" disabled>导出所选项目</button></details>
+    </section>
+    <section id="page-features" class="page-panel" role="tabpanel" aria-label="功能支持" hidden>
+     <div class="subheading"><h3>完整功能与支持进度</h3><button id="refresh-feature-catalog" type="button" class="secondary-button">刷新清单</button></div>
+     <p class="small-note">已接入功能仍需设备就绪。待实现或待验证项目不会发送设置；部分耳机功能只见于原厂通用资源，尚未确认适用于 V11。</p>
+     <label class="field">查找功能<input id="feature-search" type="search" maxlength="120" placeholder="例如：均衡器、环绕、麦克风"></label>
+     <p id="feature-catalog-status" class="small-note" role="status">正在准备功能清单</p><div id="feature-catalog-list"></div>
+    </section>
+   <section id="page-overview" class="page-panel" role="tabpanel" aria-label="概览">
+    <div class="subheading"><h3>设备概览</h3></div><p class="small-note">左侧选择设置分类。界面读取实际硬件值，修改先作为草稿。</p>
+    
+    
+    <div id="in9-hardware" hidden><dl class="hardware-facts"><div><dt>电量</dt><dd id="in9-battery">—</dd></div><div><dt>传感器</dt><dd id="in9-sensor">—</dd></div><div><dt>设备状态</dt><dd id="in9-online">—</dd></div><div><dt>回报率</dt><dd id="in9-polling">未读取</dd></div></dl></div>
+    
+    <div id="audio-settings" hidden><div class="flow-switch" role="group" aria-label="音频端点类型"><button class="flow-button active" data-flow="render" aria-pressed="true"><svg class="icon"><use href="#i-volume"/></svg>播放输出 <span id="render-count">0</span></button><button class="flow-button" data-flow="capture" aria-pressed="false"><svg class="icon"><use href="#i-mic"/></svg>麦克风 <span id="capture-count">0</span></button></div>
+    <form id="audio-form"><div class="field"><label for="endpoint-select">音频端点</label><select id="endpoint-select" disabled><option>未检测到 iKF 音频端点</option></select></div><div id="audio-empty" class="empty-state"><svg class="icon"><use href="#i-volume"/></svg><strong id="audio-empty-title">未检测到 iKF 播放端点</strong><p>连接设备后点击顶部刷新</p></div><div id="audio-controls" hidden><div class="volume-heading"><label id="volume-label" for="volume-range">输出音量</label><span><output id="volume-output" for="volume-range">0</output><small>%</small></span></div><input id="volume-range" type="range" min="0" max="100" step="1" value="0" disabled aria-describedby="volume-help"><div class="range-labels"><span>0</span><span>50</span><span>100</span></div><p class="field-hint" id="volume-help">拖动音量或切换静音后直接生效，系统读回显示实际结果。</p><label class="mute-row" for="mute-toggle"><span><strong>静音</strong><small id="mute-description">暂停播放声音</small></span><span class="switch"><input id="mute-toggle" type="checkbox" role="switch" disabled><span class="switch-track"></span></span></label><div class="readback-box" aria-live="polite"><span><svg class="icon"><use href="#i-check"/></svg>系统读回</span><strong id="readback-value">—</strong><small id="readback-time">尚未读取</small></div><div class="audio-actions"><span id="draft-status">与最近读回值一致</span><button type="submit" id="apply-button" class="primary-button" disabled><span id="apply-label">应用更改</span><svg class="icon"><use href="#i-check"/></svg></button></div></div></form>
+    <div class="restore-panel"><div><h3>恢复修改前状态</h3><p>恢复本应用首次调整前保存的音量与静音。</p></div><button id="restore-button" class="secondary-button"><span id="restore-label">恢复原始状态</span></button></div><p class="small-note">音量与静音通过 Windows 控制；下方音效通过 C-Media SDK 读取与应用。</p>
+    </div>
+    <section id="headset-diagnostics" class="setting-card" hidden><div class="subheading"><h3>设备与音效组件</h3><button id="headset-detect" type="button" class="secondary-button">检测</button></div><p class="small-note">读取当前USB身份、驱动和Windows音效绑定。仅检查组件证据，不改变声音或安装驱动。</p><p id="headset-diagnostic-status" class="small-note" role="status">尚未检测</p><div id="headset-diagnostic-results"></div></section>
+     <p id="private-reported" class="small-note"></p>
+   </section>
+   <section id="page-lighting" class="page-panel" role="tabpanel" aria-label="灯光" hidden>
+    <form id="brightness-form" hidden><div class="volume-heading"><label for="brightness-range">当前灯效亮度</label><span><output id="brightness-output">—</output><small>档</small></span></div><input id="brightness-range" type="range" min="0" max="4" step="1" value="0" disabled><p id="brightness-mode" class="field-hint">尚未读取灯光模式。</p><div class="readback-box"><span>硬件读回</span><strong id="brightness-readback">尚未读取</strong></div><div class="audio-actions"><span id="brightness-draft-status">先读取设备</span><button id="apply-brightness" type="submit" class="primary-button" disabled>应用亮度</button></div></form>
+    <div id="keyboard-lighting-fields">
+<form id="mode-form" class="setting-card"><label for="mode-select">灯效模式 <span id="mode-capability" class="setting-capability pending">先读取设备</span></label><select id="mode-select" disabled><option value="">尚未读取</option></select><p id="mode-readback" class="field-hint">仅列出设备服务确认支持的灯效。</p><button id="apply-mode" type="submit" class="secondary-button" disabled>应用灯效</button></form>
+<form id="speed-form" class="setting-card"><label for="speed-range">灯效速度 <output id="speed-output">—</output></label><input id="speed-range" type="range" min="0" max="4" step="1" value="0" disabled><p id="speed-readback" class="field-hint">尚未读取</p><button id="apply-speed" type="submit" class="secondary-button" disabled>应用速度</button></form>
+<form id="color-form" class="setting-card"><label for="color-select">灯效颜色</label><select id="color-select" disabled><option value="">尚未读取</option></select><p id="color-readback" class="field-hint">显示硬件颜色索引；只有支持颜色的模式可调整。</p><button id="apply-color" type="submit" class="secondary-button" disabled>应用颜色</button></form>
+</div><div id="mouse-lighting-note" class="setting-card" hidden><h3>鼠标灯光</h3><p class="small-note">灯光参数来自所选官方 PSF；编辑、预览与明确确认传输共用同一份配置草稿，不将配置值作为硬件读回。</p></div>
+</section>
+   <section id="page-keys" class="page-panel" role="tabpanel" aria-label="按键" hidden>
+    <div class="subheading"><h3>按键分配</h3><span class="draft-chip">编辑草稿</span></div>
+    <label id="key-layer-label" class="inline-field">编辑层 <select id="key-layer"><option value="0">默认</option><option value="1">FN1</option><option value="2">FN2</option><option value="3">Tap</option></select></label>
+    <div id="key-layout" class="key-layout" aria-label="选择要编辑的按键"></div>
+    <div class="assignment-editor"><label>选中按键 <strong id="selected-key-name">请选择按键</strong></label><label for="key-category">分配类别</label><select id="key-category" disabled><option value="keyboard">键盘键</option><option value="combo">组合键</option><option value="mouse">鼠标键</option><option value="media">多媒体</option><option value="lighting">灯光控制</option></select><label for="key-assignment">分配内容（本地草稿）</label><input id="key-assignment" type="text" maxlength="80" placeholder="输入目标按键或组合，例如 Ctrl+C" disabled><div class="draft-actions"><button id="save-key-draft" class="secondary-button" disabled>保存草稿</button><button id="apply-key-draft" class="primary-button" disabled>写入按键（未启用）</button></div><p id="key-draft-note" class="small-note">布局来自设备配置证据；当前硬件映射尚未读取。草稿不会写入设备。</p></div>
+   </section>
+   <section id="page-performance" class="page-panel" role="tabpanel" aria-label="性能" hidden>
+    <div id="keyboard-performance">
+<form id="debounce-form" class="setting-card"><label for="debounce-range">按键防抖 <output id="debounce-output">—</output></label><input id="debounce-range" type="range" min="0" max="4" step="1" value="0" disabled><p id="debounce-readback" class="field-hint">尚未读取</p><button id="apply-debounce" type="submit" class="secondary-button" disabled>应用防抖</button></form>
+<form id="sleep-form" class="setting-card"><label for="sleep-select">休眠时间</label><select id="sleep-select" disabled><option value="">尚未读取</option></select><p id="sleep-readback" class="field-hint">尚未读取</p><button id="apply-sleep" type="submit" class="secondary-button" disabled>应用休眠</button></form>
+</div>
+<div id="mouse-performance" hidden>
+     <section id="system-mouse-controls" class="setting-card">
+      <div class="subheading"><h3>Windows 鼠标设置</h3><span class="source-label">影响所有鼠标</span></div>
+      <p class="field-hint">这些设置影响当前 Windows 用户连接的全部鼠标，与 IN9 板载 DPI 独立。</p>
+      <button id="read-system-mouse" type="button" class="secondary-button">读取系统设置</button>
+      <p id="system-mouse-status" class="field-hint" role="status">尚未读取</p>
+      <form id="system-speed-form"><label for="system-speed">指针速度 <output id="system-speed-value">—</output></label><input id="system-speed" type="range" min="1" max="20" step="1" value="10" disabled><button id="apply-system-speed" class="secondary-button" disabled>应用指针速度</button></form>
+      <form id="system-wheel-form"><label for="system-wheel">每格滚动行数（-1为整页）</label><input id="system-wheel" type="number" min="-1" max="100" step="1" disabled><button id="apply-system-wheel" class="secondary-button" disabled>应用滚动行数</button></form>
+      <form id="system-horizontal-form"><label for="system-horizontal">水平滚动字符数</label><input id="system-horizontal" type="number" min="0" max="100" step="1" disabled><button id="apply-system-horizontal" class="secondary-button" disabled>应用水平滚动</button></form>
+      <form id="system-double-form"><label for="system-double">双击间隔（毫秒）</label><input id="system-double" type="number" min="1" max="5000" step="1" disabled><button id="apply-system-double" class="secondary-button" disabled>应用双击间隔</button></form>
+      <label class="setting-row" for="system-precision"><span><strong>提高指针精确度</strong><small>使用 Windows 指针加速</small></span><span class="switch"><input id="system-precision" type="checkbox" role="switch" disabled><span class="switch-track"></span></span></label>
+      <label class="setting-row" for="system-swap-primary"><span><strong>切换主次按钮</strong><small>切换左键与右键的主次功能</small></span><span class="switch"><input id="system-swap-primary" type="checkbox" role="switch" disabled><span class="switch-track"></span></span></label>
+      <button id="restore-system-mouse" type="button" class="secondary-button" disabled>恢复本应用修改前的系统参数</button>
+     </section>
+     <div hidden><label for="dpi-stages">设备 DPI 读回</label><input id="dpi-stages" type="text" placeholder="未获得完整硬件读回" disabled></div>
+     <div hidden><label for="polling-select">设备回报率读回</label><select id="polling-select" disabled><option value="">未确认</option></select></div>
+    </div>
+   </section>
+   <section id="page-restore" class="page-panel" role="tabpanel" aria-label="恢复" hidden>
+    <div class="subheading"><h3>恢复首次快照</h3></div>
+    <div class="restore-card"><p id="restore-state-text">尚未读取备份状态。</p><button id="restore-device" type="button" class="primary-button" disabled>恢复首次快照</button><p class="small-note">仅恢复本应用保存的硬件快照；不会回退出厂设置。</p></div>
+   </section>
+  </div>
+ </div>
+</section>
+
+</div>
+<div id="notice" class="notice glass" role="status" aria-live="polite" hidden><svg class="icon"><use href="#i-info"/></svg><p id="notice-text"></p><button id="dismiss-notice" class="icon-button" aria-label="关闭提示"><svg class="icon"><use href="#i-close"/></svg></button></div>
+
+<div id="drawer-overlay" class="drawer-overlay" hidden></div>
+<aside id="settings-drawer" class="settings-drawer glass" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden>
+ <header class="drawer-header"><div><p class="eyebrow" id="drawer-eyebrow">DEVICE SETTINGS</p><h2 id="drawer-title">设备设置</h2></div><button id="close-settings" class="icon-button glass" aria-label="关闭设置"><svg class="icon"><use href="#i-close"/></svg></button></header>
+ <div class="drawer-content">
+  <section id="device-settings" hidden></section>
+  <section id="application-settings" hidden></section>
+  <section id="appearance-settings" hidden><h3>浅色玻璃</h3><div class="appearance-preview"><span class="mini-capsule"></span><span class="mini-card"></span></div><label class="setting-row" for="motion-toggle"><span><strong>界面动效</strong></span><span class="switch"><input id="motion-toggle" type="checkbox" role="switch" checked><span class="switch-track"></span></span></label><p id="motion-note" class="small-note"></p></section>
+  <section id="about-settings" hidden><div class="about-mark">HUB</div><h3>你的外设，在同一个空间。</h3><p class="panel-subtitle">非官方 · 本地定制，界面参考 MCHOSE HUB。</p><div class="support-list"><div><svg class="icon"><use href="#i-check"/></svg><span><strong>统一控制 · 设备直连</strong><small>AULA 已确认灯光参数与原始配置草稿；IN9 本地 PSF、按键与灯光；iKF 双端点音频、九类音效与应用关联。每项以对应页面的实际状态为准。</small></span></div><div><svg class="icon"><use href="#i-lock"/></svg><span><strong>功能来源</strong><small>控制通过本地协议或官方 SDK 完成，不启动原厂程序。配置草稿、Windows读回、SDK读回和设备执行分别标明。</small></span></div></div><dl class="about-meta"><div><dt>应用版本</dt><dd id="info-version">待读取</dd></div><div><dt>运行模式</dt><dd id="info-mode">本地定制</dd></div><div><dt>来源</dt><dd id="info-source">自建界面与设备服务</dd></div></dl><section id="warnings-panel" hidden><details><summary id="warnings-summary">扫描提示</summary><ul id="warnings-list"></ul></details></section><p class="small-note">设备状态以最近一次有效读回为准。所有资源本地加载。</p></section>
+ </div>
+</aside>
+<template id="device-card-template"><button class="device-card glass" type="button"><span class="card-art"><img draggable="false" alt=""></span><span class="card-copy"><span class="card-brand"></span><strong class="card-name"></strong><span class="card-status"></span></span><span class="card-number"></span><span class="card-indicator"></span></button></template>
+</body>
+</html>

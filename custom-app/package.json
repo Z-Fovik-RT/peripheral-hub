@@ -1,0 +1,9 @@
+{
+  "name": "peripheral-hub-local",
+  "productName": "外设中心 · 本地定制",
+  "version": "0.6.1",
+  "edition": "lite",
+  "private": true,
+  "description": "Local Windows controller for supported keyboards, mice and headsets",
+  "main": "main.cjs"
+}

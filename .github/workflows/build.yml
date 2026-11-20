@@ -1,0 +1,27 @@
+name: Windows build
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  windows-x64:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build installer
+        shell: pwsh
+        run: ./Build-Installer.ps1
+      - name: Test isolated install and uninstall
+        shell: pwsh
+        run: ./tests/Test-PublicInstaller.ps1 -Installer (Get-ChildItem ./dist/*-x64-Setup.exe).FullName
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PeripheralHub-windows-x64
+          path: |
+            dist/*-x64-Setup.exe
+            dist/*-x64-Setup.exe.sha256

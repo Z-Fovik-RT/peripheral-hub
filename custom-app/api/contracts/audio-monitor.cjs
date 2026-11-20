@@ -1,0 +1,5 @@
+'use strict';
+const {S}=require('../schema.cjs');
+const endpointId=S.string(2048),nullableNumber=S.nullable(S.num(0,100)),levels=S.nullable(S.array(S.num(0,1),1,32));
+const snapshot=S.obj({running:S.bool,source:S.enum(['windows-system']),sequence:S.int(0,Number.MAX_SAFE_INTEGER),sampledAt:S.nullable(S.string(64)),endpointIds:S.array(endpointId,0,2),endpoints:S.array(S.obj({endpointId,name:S.nullable(S.text(1024)),flow:S.enum(['render','capture']),available:S.bool,identityVerified:S.bool,volume:nullableNumber,muted:S.nullable(S.bool),channels:levels,peaks:levels,error:S.nullable(S.text(2048))}),0,2),error:S.nullable(S.text(2048))});
+module.exports=[['start','开始读取双端点实时状态','read',S.obj({endpointIds:S.array(endpointId,1,2)})],['read','读取实时状态缓存','local',S.empty],['stop','停止实时状态读取','read',S.empty]].map(([suffix,title,effect,args])=>({id:'headset.audio.monitor.'+suffix,title,devices:['ikf-v11-pro-71'],effect,args,result:snapshot,availability:'implemented',evidence:'system-verified',auditIds:['H-AUDIO'],reason:'仅经严格身份核验持续读取指定耳机端点的Core Audio音量、静音、声道和峰值；不写设置、不加载厂商SDK。隐藏/断连清空可用读数。'}));

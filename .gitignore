@@ -1,0 +1,9 @@
+/build/
+/dist/
+/runtime/
+/local-state/
+/backups/
+/reference/
+/reports/
+/tools/nsis/
+*.bak-*
